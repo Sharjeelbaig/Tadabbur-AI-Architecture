@@ -1,4 +1,4 @@
-# Tadabbur AI
+# Tadabbur AI Architecture
 
 Tadabbur AI combines Quranic knowledge APIs with a Large Language Model (LLM) to produce clear, modern explanations of Quranic verses. This repository focuses on a clean, modular backend architecture that fetches authentic data, processes it with AI, and returns structured results.
 
