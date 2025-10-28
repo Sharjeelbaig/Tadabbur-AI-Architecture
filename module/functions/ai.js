@@ -1,4 +1,4 @@
-import ollamaClient from "../clients/ollamaClient.js";
+import ollamaClient from "../clients/ollamaClient";
 import extract from 'extract-json-from-string';
 
 export async function generateExplanation(tafseerText) {
@@ -29,12 +29,3 @@ export async function generateExplanation(tafseerText) {
 
     return extract(response?.content)[0]
 }
-
-const exampleTafseer = `This Surah, Al-Fatiha, is the opening chapter of the Quran and holds great significance in Islamic worship and daily life. It is often referred to as "The Opening" because it serves as the prelude to the entire Quranic text. The Surah consists of seven verses that encapsulate the essence of Islamic faith and practice.
-
-The Surah begins with praise for Allah, acknowledging His mercy and sovereignty. It emphasizes the importance of seeking guidance from Allah alone, highlighting the concept of monotheism that is central to Islam. The Surah also underscores the Day of Judgment, reminding believers of accountability for their actions.
-
-In daily prayers, Al-Fatiha is recited multiple times, serving as a reminder of the believer's relationship with Allah and their dependence on His guidance. The Surah's themes of mercy, guidance, and accountability resonate deeply with Muslims, making it a foundational element of Islamic spirituality and worship.`;
-
-const json = await generateExplanation(exampleTafseer)
-console.log("Generated Explanation:", json);

@@ -1,4 +1,4 @@
-import quranClient from '../clients/quranClient.js'
+import quranClient from '../clients/quranClient'
 
 export async function retrieveSurah(surahId, translation_id) {
     const surah = await quranClient?.verses?.findByChapter(surahId, {

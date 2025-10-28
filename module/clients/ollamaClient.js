@@ -1,6 +1,6 @@
 import {ChatOllama} from '@langchain/ollama'
-import dotenv from 'dotenv'
-dotenv.config()
+// import dotenv from 'dotenv'
+// dotenv.config()
 const ollamaClient = new ChatOllama({
     baseUrl: 'https://ollama.com',
     model: 'gpt-oss:120b-cloud',
