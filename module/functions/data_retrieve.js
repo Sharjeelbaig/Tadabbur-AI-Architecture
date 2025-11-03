@@ -5,6 +5,8 @@ export async function retrieveSurah(surahId, translation_id) {
         words: true,
         translations: [translation_id],
         wordFields: ['text_uthmani'],
+        per_page: 300,
+        page: 1
     })
     const verses = surah?.map(data => {
     const translation = data?.translations?.map(translation => translation?.text)[0]
@@ -26,13 +28,16 @@ export async function retrieveSurah(surahId, translation_id) {
 }
 
 export async function retrieveTafseer(surahId, tafsirId) {
-    const tafseer_data = await fetch(`https://api.quran.com/api/v4/tafsirs/${tafsirId}/by_chapter/${surahId}`)
+    const tafseer_data = await fetch(`https://api.quran.com/api/v4/tafsirs/${tafsirId}/by_chapter/${surahId}?per_page=300&page=1`)
     const tafseer = await tafseer_data.json()
     return tafseer;
 }
 
 export async function retrieveRecitation(chapterId, reciterId) {
-    const recitation = await quranClient?.audio?.findVerseRecitationsByChapter(chapterId, reciterId);
+    const recitation = await quranClient?.audio?.findVerseRecitationsByChapter(chapterId, reciterId, {
+        per_page: 300,
+        page: 1
+    });
     const audioFiles = recitation?.audioFiles?.map(verse => {
         const verseKey = verse?.verseKey;
         const audioUrl = 'https://audio.qurancdn.com/' + verse?.url;
