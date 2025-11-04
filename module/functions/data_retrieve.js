@@ -4,15 +4,15 @@ export async function retrieveSurah(surahId, translation_id) {
     const surah = await quranClient?.verses?.findByChapter(surahId, {
         words: true,
         translations: [translation_id],
-        wordFields: ['text_uthmani'],
+        wordFields: ['textIndopak'],
         per_page: 300,
         page: 1
     })
     const verses = surah?.map(data => {
     const translation = data?.translations?.map(translation => translation?.text)[0]
-    const words = data?.words?.map(words => words?.textUthmani) 
+    const words = data?.words?.map(words => words?.textIndopak) 
     const word_audios = data?.words?.map(words => 'https://audio.qurancdn.com/'+words?.audioUrl)?.slice(0, -1)
-    const verse = data?.words?.map(words => words?.textUthmani)?.join(' ')
+    const verse = data?.words?.map(words => words?.textIndopak)?.join(' ')
     const key = data?.verseKey
     return (
         {
