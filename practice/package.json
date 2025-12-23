@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "natural": "^8.1.0",
+    "pixabay-api": "^1.0.1"
+  }
+}
